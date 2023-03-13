@@ -8,15 +8,17 @@ export const SingleReviewCard = ({
   created_at,
   review_id,
 }) => {
+  const formattedDate = created_at.split("T")[0].split("-").reverse().join("-");
+
   return (
-    <main>
+    <main className="single-review">
       <img src={review_img_url} alt={title}></img>
       <h2>{title}</h2>
-      <h3>Designed by:{designer}</h3>
+      <h3>Designed by: {designer}</h3>
       <h4>Votes: {votes}</h4>
       <p>{review_body}</p>
       <p>
-        Review by: {owner} Written on: {created_at}
+        Review by: {owner} Written on: {formattedDate}
       </p>
     </main>
   );

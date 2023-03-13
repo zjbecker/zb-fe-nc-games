@@ -16,6 +16,8 @@ h1 {
   gap: 40px;
 }
 .review-card {
+  padding: 15px;
+  background-color: #343641;
   width: 200px;
 }
 .reviews-list h2 {
@@ -38,7 +40,17 @@ h1 {
   object-fit: cover;
 }
 
-.read-more-btn {
+.read-more {
+  border: none;
+  text-decoration: none;
+}
+
+.MyNav {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.nav-link {
   background-color: #8c8f8c;
   border: none;
   color: white;
@@ -47,4 +59,17 @@ h1 {
   text-decoration: none;
   display: inline-block;
   font-size: 0.8rem;
+}
+
+.single-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.single-review img {
+  float: center;
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
 }

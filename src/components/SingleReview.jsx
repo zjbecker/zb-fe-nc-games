@@ -2,6 +2,7 @@ import { SingleReviewCard } from "./SingleReviewCard";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getReviewById } from "./api";
+import { LoadingAnimation } from "./LoadingAnimation";
 
 export const SingleReview = () => {
   const { review_id } = useParams();
@@ -17,7 +18,7 @@ export const SingleReview = () => {
     });
   }, [review_id]);
 
-  if (isLoading) return <p>loading ...</p>;
+  if (isLoading) return <LoadingAnimation />;
 
   return <SingleReviewCard {...reviewData} />;
 };
