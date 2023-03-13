@@ -1,1 +1,30 @@
-export const Reviews = () => <p>Reviews!</p>;
+import { useEffect, useState } from "react";
+import { FilterMenu } from "./FilterMenu";
+import { getReviewsData } from "./api";
+import { ReviewCard } from "./ReviewCard";
+
+export const Reviews = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [reviewsData, setReviewsData] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getReviewsData().then((reviews) => {
+      setReviewsData(reviews);
+      setIsLoading(false);
+    });
+  }, []);
+
+  if (isLoading) return <p>loading ...</p>;
+
+  return (
+    <main>
+      <FilterMenu />
+      <ul className="reviews-list">
+        {reviewsData.map((review, i) => {
+          return <ReviewCard key={i} {...review} />;
+        })}
+      </ul>
+    </main>
+  );
+};

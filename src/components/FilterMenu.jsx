@@ -1,1 +1,1 @@
-export const FilterMenu = () => <p>FilterMenu!</p>;
+export const FilterMenu = () => <p>FilterMenu placeholder</p>;
