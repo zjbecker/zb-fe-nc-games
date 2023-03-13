@@ -1,1 +1,1 @@
-export const Nav = () => <p>Nav!</p>;
+export const Nav = () => <p>Nav Placeholder</p>;

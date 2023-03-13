@@ -1,3 +1,39 @@
+body {
+  background-color: #464857;
+}
 .App {
   text-align: center;
+}
+h1 {
+  font-family: "Cinzel", serif;
+  color: #eff0ec;
+}
+.reviews-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.review-card {
+  width: 200px;
+}
+.reviews-list h2 {
+  font-size: 1.2rem;
+  color: #939196;
+}
+.reviews-list h3 {
+  font-size: 0.8rem;
+  color: #697f7c;
+}
+.reviews-list h4 {
+  font-size: 0.8rem;
+  color: #eff0ec;
+}
+
+.review-card img {
+  float: center;
+  width: 100%;
+  height: 55%;
+  object-fit: cover;
 }
