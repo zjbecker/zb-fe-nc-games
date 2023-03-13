@@ -21,8 +21,8 @@ export const Reviews = () => {
     <main>
       <FilterMenu />
       <ul className="reviews-list">
-        {reviewsData.map((review, i) => {
-          return <ReviewCard key={i} {...review} />;
+        {reviewsData.map((review) => {
+          return <ReviewCard key={review.review_id} {...review} />;
         })}
       </ul>
     </main>

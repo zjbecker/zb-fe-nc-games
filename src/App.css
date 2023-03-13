@@ -37,3 +37,14 @@ h1 {
   height: 55%;
   object-fit: cover;
 }
+
+.read-more-btn {
+  background-color: #8c8f8c;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.8rem;
+}
