@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FilterMenu } from "./FilterMenu";
 import { getReviewsData } from "./api";
 import { ReviewCard } from "./ReviewCard";
+import { LoadingAnimation } from "./LoadingAnimation";
 
 export const Reviews = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +16,7 @@ export const Reviews = () => {
     });
   }, []);
 
-  if (isLoading) return <p>loading ...</p>;
+  if (isLoading) return <LoadingAnimation />;
 
   return (
     <main>
