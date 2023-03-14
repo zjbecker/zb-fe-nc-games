@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getReviewById } from "./api";
 import { LoadingAnimation } from "./LoadingAnimation";
+import { CommentsSection } from "./CommentsSection";
 
 export const SingleReview = () => {
   const { review_id } = useParams();
@@ -20,5 +21,12 @@ export const SingleReview = () => {
 
   if (isLoading) return <LoadingAnimation />;
 
-  return <SingleReviewCard {...reviewData} />;
+  return (
+    <article>
+      <SingleReviewCard {...reviewData} />
+      <section>
+        <CommentsSection />
+      </section>
+    </article>
+  );
 };
