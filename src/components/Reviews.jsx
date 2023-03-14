@@ -10,7 +10,7 @@ export const Reviews = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getReviewsData().then((reviews) => {
+    getReviewsData(null, null, null, null).then((reviews) => {
       setReviewsData(reviews);
       setIsLoading(false);
     });

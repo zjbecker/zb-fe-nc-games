@@ -26,20 +26,20 @@ h1 {
 .review-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.reviews-list h2 {
+.review-card_h2 {
   font-size: 1.2rem;
   color: #939196;
 }
-.reviews-list h3 {
+.review-card_h3 {
   font-size: 0.8rem;
   color: #697f7c;
 }
-.reviews-list h4 {
+.review-card_h4 {
   font-size: 0.8rem;
   color: #eff0ec;
 }
 
-.review-card img {
+.review-card_img {
   float: center;
   width: 100%;
   height: 55%;
