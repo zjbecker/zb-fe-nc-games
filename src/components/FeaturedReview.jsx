@@ -18,7 +18,7 @@ export const FeaturedReview = () => {
   if (isLoading) return <LoadingAnimation />;
 
   return (
-    <article>
+    <article className="reviews-list">
       <h2>Most popular review this month</h2>
       <ReviewCard {...reviewData} />
     </article>

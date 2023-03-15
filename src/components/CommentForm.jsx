@@ -33,7 +33,7 @@ export const CommentForm = ({ setOptiComment, review_id }) => {
   };
 
   return (
-    <form onSubmit={submitFormHandler}>
+    <form onSubmit={submitFormHandler} className="comment-form">
       <label htmlFor="comment-input">Comment: </label>
       <input
         type="text"

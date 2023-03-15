@@ -24,10 +24,14 @@ h1 {
   background: #343641;
   width: 80%;
   margin: 10px;
-}
-.review-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+.review-card:hover,
+.review-card:active {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
+}
+
 .review-card_h2 {
   font-size: 1.2rem;
   color: #939196;
@@ -88,7 +92,13 @@ h1 {
   height: 100%;
   object-fit: cover;
 }
+.comments-section {
+  margin-top: 50px;
+}
 
+.comment-form {
+  margin: 10px;
+}
 .comment-list {
   display: flex;
   list-style-type: none;
@@ -96,18 +106,15 @@ h1 {
   justify-content: center;
   align-items: center;
   color: #eff0ec;
+  margin: 0;
   padding: 0px;
 }
 .comment-card {
-  padding: 5px;
-  background-color: #343641;
-  border-radius: 5px;
   width: 90%;
-  margin: 7px;
 }
 
 .comment-card p {
-  background: #111111;
+  background: #2e2e2e;
   padding: 10px;
   margin: 0px;
   position: relative;
@@ -126,4 +133,14 @@ h3 {
 .comment-card h3 {
   font-size: small;
   text-align: left;
+}
+.like-button {
+  color: #eff0ec;
+  background: none;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+.like-button:hover {
+  color: #bcbdba;
 }
