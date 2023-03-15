@@ -9,6 +9,9 @@ export const Nav = () => {
       <Link to="/reviews" className="nav-link">
         Reviews
       </Link>
+      <Link to="/login" className="nav-link">
+        Log in
+      </Link>
     </nav>
   );
 };

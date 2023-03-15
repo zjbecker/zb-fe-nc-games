@@ -35,3 +35,7 @@ export const postComment = (review_id, username, body) => {
 export const getCategories = () => {
   return gamesApi.get(`/categories`).then(({ data }) => data.categories);
 };
+
+export const getUsers = () => {
+  return gamesApi.get(`/users`).then(({ data }) => data.users);
+};

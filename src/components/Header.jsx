@@ -5,6 +5,7 @@ import { useContext } from "react";
 
 export const Header = () => {
   const { user } = useContext(UserContext);
+
   return (
     <header>
       <h1>GAMES</h1>
