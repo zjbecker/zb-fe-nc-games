@@ -1,32 +1,35 @@
-import { useEffect, useState } from "react";
 import { ReviewsFilterMenu } from "./ReviewsFilterMenu";
-import { getReviewsData } from "./api";
-import { ReviewCard } from "./ReviewCard";
-import { LoadingAnimation } from "./LoadingAnimation";
+import { useSearchParams } from "react-router-dom";
+import { ReviewsView } from "./ReviewsView";
 
 export const Reviews = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [reviewsData, setReviewsData] = useState([]);
-  const [categorySearch, setCategorySearch] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryQuery = searchParams.get("category");
+  const sortByQuery = searchParams.get("sort-by");
+  const orderQuery = searchParams.get("order");
 
-  useEffect(() => {
-    setIsLoading(true);
-    getReviewsData(categorySearch, null, null, null).then((reviews) => {
-      setReviewsData(reviews);
-      setIsLoading(false);
-    });
-  }, [categorySearch]);
+  const setQuery = (queryName, newQuery) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set(queryName, newQuery);
+    setSearchParams(newParams);
+  };
+  const setSortByQuery = (sortBy) => setQuery("sort-by", sortBy);
+  const setCategoryQuery = (category) => setQuery("category", category);
+  const setOrderQuery = (order) => setQuery("order", order);
 
-  if (isLoading) return <LoadingAnimation />;
+  const propsObj = {
+    categoryQuery,
+    setCategoryQuery,
+    sortByQuery,
+    setSortByQuery,
+    orderQuery,
+    setOrderQuery,
+  };
 
   return (
     <main>
-      <ReviewsFilterMenu setCategorySearch={setCategorySearch} />
-      <ul className="reviews-list">
-        {reviewsData.map((review) => {
-          return <ReviewCard key={review.review_id} {...review} />;
-        })}
-      </ul>
+      <ReviewsFilterMenu {...propsObj} />
+      <ReviewsView {...propsObj} />
     </main>
   );
 };

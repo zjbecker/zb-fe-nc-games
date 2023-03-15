@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { getCategories } from "./api";
 
-export const ReviewsFilterMenu = ({ setCategorySearch }) => {
+export const ReviewsFilterMenu = ({
+  categoryQuery,
+  setCategoryQuery,
+  sortByQuery,
+  setSortByQuery,
+  orderQuery,
+  setOrderQuery,
+}) => {
   const [categoryOptions, setCategoryOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -27,9 +34,10 @@ export const ReviewsFilterMenu = ({ setCategorySearch }) => {
       <label htmlFor="category-select">Category</label>
       <select
         id="category-select"
-        onChange={(e) => setCategorySearch(e.target.value)}
+        value={categoryQuery || ""}
+        onChange={(e) => setCategoryQuery(e.target.value)}
       >
-        <option value={null}>All</option>
+        <option value="">All</option>
         {categoryOptions.map(({ slug }) => {
           return (
             <option key={slug} value={slug}>
@@ -37,6 +45,30 @@ export const ReviewsFilterMenu = ({ setCategorySearch }) => {
             </option>
           );
         })}
+      </select>
+
+      <label htmlFor="sort-by-select">Sort By:</label>
+      <select
+        id="sort-by-select"
+        value={sortByQuery || ""}
+        onChange={(e) => setSortByQuery(e.target.value)}
+      >
+        <option value="created_at">Date Written</option>
+        <option value="title">Title</option>
+        <option value="category">Category</option>
+        <option value="votes">Votes</option>
+        <option value="designer">Designer</option>
+        <option value="comment_count">Comments</option>
+      </select>
+
+      <label htmlFor="order-select">Order:</label>
+      <select
+        id="order-select"
+        value={orderQuery || "DESC"}
+        onChange={(e) => setOrderQuery(e.target.value)}
+      >
+        <option value="asc">ASC</option>
+        <option value="desc">DESC</option>
       </select>
     </form>
   );
