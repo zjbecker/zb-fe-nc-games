@@ -22,11 +22,13 @@ export const SingleReview = () => {
   if (isLoading) return <LoadingAnimation />;
 
   return (
-    <article>
-      <SingleReviewCard {...reviewData} />
+    <>
+      <article className="single-article">
+        <SingleReviewCard {...reviewData} />
+      </article>
       <section>
         <CommentsSection />
       </section>
-    </article>
+    </>
   );
 };

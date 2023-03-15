@@ -68,11 +68,15 @@ h1 {
   display: inline-block;
   font-size: 0.8rem;
 }
+.single-article {
+  text-align: justify;
+}
 
 .single-review {
   color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin: 10px;
   width: 90%;
@@ -96,10 +100,9 @@ h1 {
 .comment-card {
   padding: 5px;
   background-color: #343641;
-  width: 100%;
   border-radius: 5px;
-  width: 80%;
-  margin: 10px;
+  width: 90%;
+  margin: 7px;
 }
 
 .comment-card p {
