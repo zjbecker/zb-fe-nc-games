@@ -3,6 +3,7 @@ import { patchReviewVotes } from "./api";
 
 export const SingleReviewCard = ({
   title,
+  category,
   designer,
   owner,
   review_body,
@@ -30,6 +31,7 @@ export const SingleReviewCard = ({
 
   return (
     <main className="single-review">
+      <h1>--{category}-- remove this---</h1>
       <img src={review_img_url} alt={title}></img>
       <h2>{title}</h2>
       <h3>Designed by: {designer}</h3>
