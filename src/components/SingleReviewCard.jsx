@@ -23,7 +23,7 @@ export const SingleReviewCard = ({
     setVoteCount((curr) => curr + update);
     patchReviewVotes(review_id, update).catch((err) => {
       setVoteCount((curr) => curr - update);
-      setErrMessage("Something went wrong: Like update not saved");
+      setErrMessage("Something went wrong: Vote update not saved");
       setTimeout(() => setErrMessage(""), 4000);
     });
   };
