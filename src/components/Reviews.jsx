@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FilterMenu } from "./FilterMenu";
+import { ReviewsFilterMenu } from "./ReviewsFilterMenu";
 import { getReviewsData } from "./api";
 import { ReviewCard } from "./ReviewCard";
 import { LoadingAnimation } from "./LoadingAnimation";
@@ -20,7 +20,7 @@ export const Reviews = () => {
 
   return (
     <main>
-      <FilterMenu />
+      <ReviewsFilterMenu />
       <ul className="reviews-list">
         {reviewsData.map((review) => {
           return <ReviewCard key={review.review_id} {...review} />;

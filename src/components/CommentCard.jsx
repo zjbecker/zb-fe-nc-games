@@ -3,7 +3,7 @@ export const CommentCard = ({ author, body, votes }) => {
     <li className="comment-card">
       <h3>{author} said:</h3>
       <p>{body}</p>
-      <h4>votes: {votes}</h4>
+      <h4>&#128077;{votes}</h4>
     </li>
   );
 };
