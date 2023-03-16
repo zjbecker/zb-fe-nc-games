@@ -8,6 +8,7 @@ export const ReviewsFilterMenu = ({
   setSortByQuery,
   orderQuery,
   setOrderQuery,
+  deleteCategoryQuery,
 }) => {
   const [categoryOptions, setCategoryOptions] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -35,9 +36,15 @@ export const ReviewsFilterMenu = ({
       <select
         id="category-select"
         value={categoryQuery || ""}
-        onChange={(e) => setCategoryQuery(e.target.value)}
+        onChange={(e) => {
+          if (e.target.value === "all") {
+            deleteCategoryQuery();
+          } else {
+            setCategoryQuery(e.target.value);
+          }
+        }}
       >
-        <option value="">All</option>
+        <option value="all">All</option>
         {categoryOptions.map(({ slug }) => {
           return (
             <option key={slug} value={slug}>
@@ -51,7 +58,9 @@ export const ReviewsFilterMenu = ({
       <select
         id="sort-by-select"
         value={sortByQuery || ""}
-        onChange={(e) => setSortByQuery(e.target.value)}
+        onChange={(e) => {
+          setSortByQuery(e.target.value);
+        }}
       >
         <option value="created_at">Date Written</option>
         <option value="title">Title</option>
@@ -67,8 +76,8 @@ export const ReviewsFilterMenu = ({
         value={orderQuery || "DESC"}
         onChange={(e) => setOrderQuery(e.target.value)}
       >
-        <option value="asc">ASC</option>
         <option value="desc">DESC</option>
+        <option value="asc">ASC</option>
       </select>
     </form>
   );
