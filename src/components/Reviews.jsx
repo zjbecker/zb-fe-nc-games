@@ -16,14 +16,12 @@ export const Reviews = () => {
   const setSortByQuery = (sortBy) => setQuery("sort-by", sortBy);
   const setCategoryQuery = (category) => setQuery("category", category);
   const setOrderQuery = (order) => setQuery("order", order);
-  const deleteCategoryQuery = () => {
-    searchParams.delete("category");
-    //is this bad practise?
-    setSearchParams((cur) => cur);
-  };
 
-  // why isnt this just fine too???
-  //   const setCategoryQuery = (category) => setSearchParams({ category });
+  const deleteCategoryQuery = () => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete("category");
+    setSearchParams(newParams);
+  };
 
   const propsObj = {
     categoryQuery,

@@ -145,3 +145,37 @@ h3 {
 .like-button:hover {
   color: #bcbdba;
 }
+
+.login-list {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #eff0ec;
+  margin: 0;
+  padding: 0px;
+}
+.login-list-item {
+  border-radius: 5px;
+  color: #2e2e2e;
+  padding: 15px;
+  background: #ffffff;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.login-list-item h2:hover {
+  color: rgb(119, 117, 117);
+}
+.login-list img {
+  float: center;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+.user-login-item {
+  cursor: pointer;
+}

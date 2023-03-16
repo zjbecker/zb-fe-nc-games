@@ -15,6 +15,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/reviews/:review_id" element={<SingleReview />} />
         <Route path="/login" element={<LoginView />} />
+        <Route path="/*" element={<p>404 not found</p>} />
       </Routes>
     </div>
   );
