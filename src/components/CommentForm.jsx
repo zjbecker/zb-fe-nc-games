@@ -2,12 +2,13 @@ import { useState, useContext } from "react";
 import { UserContext } from "../User";
 import { postComment } from "./api";
 
-export const CommentForm = ({ setOptiComment, review_id }) => {
+export const CommentForm = ({ review_id, setCommentsData }) => {
   const { user } = useContext(UserContext);
   const [newMessage, setNewMessage] = useState("");
   const [errMessage, setErrMessage] = useState("");
 
   const username = user.username;
+
   const submitFormHandler = (e) => {
     e.preventDefault();
 
@@ -16,17 +17,25 @@ export const CommentForm = ({ setOptiComment, review_id }) => {
       setTimeout(() => setErrMessage(""), 3000);
       return;
     }
-    setNewMessage("");
-    setOptiComment({
-      author: username,
-      body: newMessage,
-      votes: 0,
-    });
-    postComment(review_id, username, newMessage).catch(() => {
-      setOptiComment(null);
-      setErrMessage("Something went wrong: comment has not been submitted");
-      setTimeout(() => setErrMessage(""), 5000);
-    });
+
+    postComment(review_id, username, newMessage)
+      .then((comment_id) => {
+        setCommentsData((curr) => {
+          const update = {
+            author: username,
+            body: newMessage,
+            votes: 0,
+            isAuthor: true,
+            comment_id,
+          };
+          return [update, ...curr];
+        });
+        setNewMessage("");
+      })
+      .catch(() => {
+        setErrMessage("Something went wrong: comment has not been submitted");
+        setTimeout(() => setErrMessage(""), 5000);
+      });
   };
 
   return (

@@ -9,7 +9,6 @@ import { UserContext } from "../User";
 export const CommentsSection = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [commentsData, setCommentsData] = useState([]);
-  const [optiComment, setOptiComment] = useState(null);
   const { review_id } = useParams();
   const { user } = useContext(UserContext);
   const location = useLocation();
@@ -23,23 +22,29 @@ export const CommentsSection = () => {
   }, [review_id]);
 
   if (isLoading) return <LoadingAnimation />;
-  if (!user) {
-    return (
-      <section className="not-logged-in">
-        <h3>{`There are ${commentsData.length} comments, please log in to view and add comments`}</h3>
-        <NavLink to={"/login"} state={{ prev: location.pathname }}>
-          Log In
-        </NavLink>
-      </section>
-    );
-  }
+
   return (
     <section className="comments-section">
-      <CommentForm setOptiComment={setOptiComment} review_id={review_id} />
+      {!user ? (
+        <section className="not-logged-in">
+          <h3>{`Please log in to add comments`}</h3>
+          <NavLink to={"/login"} state={{ prev: location.pathname }}>
+            Log In
+          </NavLink>
+        </section>
+      ) : (
+        <CommentForm review_id={review_id} setCommentsData={setCommentsData} />
+      )}
       <ul className="comment-list">
-        {optiComment ? <CommentCard {...optiComment} /> : null}
-        {commentsData.map((comment) => {
-          return <CommentCard key={comment.comment_id} {...comment} />;
+        {commentsData.map((comment, i) => {
+          return (
+            <CommentCard
+              key={i}
+              {...comment}
+              setCommentsData={setCommentsData}
+              isAuthor={user ? comment.author === user.username : false}
+            />
+          );
         })}
       </ul>
     </section>
