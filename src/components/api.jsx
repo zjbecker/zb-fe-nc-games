@@ -29,7 +29,7 @@ export const patchReviewVotes = (review_id, inc_votes) => {
 export const postComment = (review_id, username, body) => {
   return gamesApi
     .post(`/reviews/${review_id}/comments`, { username, body })
-    .then(({ status }) => status);
+    .then(({ data }) => data.postedComment.comment_id);
 };
 
 export const getCategories = () => {
@@ -38,4 +38,10 @@ export const getCategories = () => {
 
 export const getUsers = () => {
   return gamesApi.get(`/users`).then(({ data }) => data.users);
+};
+
+export const deleteCommentbyId = (comment_id) => {
+  return gamesApi
+    .delete(`/comments/${comment_id}`)
+    .then(({ status }) => status);
 };
