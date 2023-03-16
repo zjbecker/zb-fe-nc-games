@@ -16,7 +16,7 @@ export const CommentCard = ({
     deleteComment(comment_id)
       .then(() => {
         setTimeout(() => {
-          setAlertMessage("Message removed");
+          setAlertMessage("Message removed.");
         }, 2000);
         setTimeout(() => {
           setCommentsData((curr) => {
