@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../User";
-import { useContext } from "react";
 import { postComment } from "./api";
 
 export const CommentForm = ({ setOptiComment, review_id }) => {
+  const { user } = useContext(UserContext);
   const [newMessage, setNewMessage] = useState("");
   const [errMessage, setErrMessage] = useState("");
 
-  const {
-    user: { username },
-  } = useContext(UserContext);
-
+  if (!user)
+    return (
+      <p>cannot write comment without logging in - update this with link</p>
+    );
+  const username = user.username;
   const submitFormHandler = (e) => {
     e.preventDefault();
 
