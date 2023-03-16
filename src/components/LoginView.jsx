@@ -3,17 +3,23 @@ import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { getUsers } from "./api";
 import { UserCard } from "./UserCard";
+import { LoadingAnimation } from "./LoadingAnimation";
 
 export const LoginView = () => {
   const { user, setUser } = useContext(UserContext);
   const [usersData, setUsersData] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getUsers().then((users) => {
       setUsersData(users);
+      setIsLoading(false);
     });
   }, []);
+
+  if (isLoading) return <LoadingAnimation />;
 
   if (user) {
     const firstName = user.name.split(" ")[0];

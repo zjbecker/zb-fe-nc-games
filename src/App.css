@@ -13,9 +13,9 @@ h1 {
   padding: 0px;
   list-style-type: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  align-items: normal;
+  align-items: center;
   gap: 15px;
 }
 .review-card {
