@@ -122,6 +122,9 @@ h1 {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
+.comment-card .alert {
+  background-color: #4e4e4e;
+}
 .comment-card h4,
 h3 {
   font-size: small;
@@ -135,6 +138,7 @@ h3 {
   font-size: small;
   text-align: left;
 }
+
 .like-button {
   color: #eff0ec;
   background: none;

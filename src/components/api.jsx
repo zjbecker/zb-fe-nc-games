@@ -40,7 +40,7 @@ export const getUsers = () => {
   return gamesApi.get(`/users`).then(({ data }) => data.users);
 };
 
-export const deleteCommentbyId = (comment_id) => {
+export const deleteComment = (comment_id) => {
   return gamesApi
     .delete(`/comments/${comment_id}`)
     .then(({ status }) => status);

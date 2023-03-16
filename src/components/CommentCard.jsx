@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { deleteCommentbyId } from "./api";
+import { deleteComment } from "./api";
 
 export const CommentCard = ({
   author,
@@ -9,18 +9,25 @@ export const CommentCard = ({
   comment_id,
   setCommentsData,
 }) => {
-  const [errMessage, setErrMessage] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
   const deleteHandler = (idToDelete) => {
-    deleteCommentbyId(comment_id)
+    setAlertMessage("Removing...");
+    deleteComment(comment_id)
       .then(() => {
-        setCommentsData((curr) => {
-          return curr.filter(({ comment_id }) => comment_id !== idToDelete);
-        });
+        setTimeout(() => {
+          setAlertMessage("Message removed");
+        }, 2000);
+        setTimeout(() => {
+          setCommentsData((curr) => {
+            return curr.filter(({ comment_id }) => comment_id !== idToDelete);
+          });
+          setAlertMessage("");
+        }, 4000);
       })
       .catch(() => {
-        setErrMessage('"Something went wrong: comment has not been removed"');
-        setTimeout(() => setErrMessage(""), 5000);
+        setAlertMessage("Something went wrong: comment has not been removed");
+        setTimeout(() => setAlertMessage(""), 4000);
       });
   };
 
@@ -45,9 +52,8 @@ export const CommentCard = ({
   return (
     <li className="comment-card">
       <h3>{author} said:</h3>
-      <p>{body}</p>
+      {alertMessage ? <p className="alert">{alertMessage}</p> : <p>{body}</p>}
       {isAuthor ? <h4>{deleteBtn}</h4> : <h4>{voteBtn}</h4>}
-      {errMessage ? <p>{errMessage}</p> : null}
     </li>
   );
 };
