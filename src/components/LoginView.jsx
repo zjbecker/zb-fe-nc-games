@@ -6,9 +6,8 @@ import { UserCard } from "./UserCard";
 import { LoadingAnimation } from "./LoadingAnimation";
 
 export const LoginView = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [usersData, setUsersData] = useState([]);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,18 +28,7 @@ export const LoginView = () => {
   return (
     <ul className="login-list">
       {usersData.map((user) => {
-        return (
-          <a
-            className="user-login-item"
-            key={user.name}
-            onClick={() => {
-              setUser(user);
-              setIsLoggedIn(true);
-            }}
-          >
-            <UserCard {...user} />
-          </a>
-        );
+        return <UserCard key={user.username} {...user} />;
       })}
     </ul>
   );

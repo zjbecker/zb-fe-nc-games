@@ -22,13 +22,13 @@ export const getCommentsData = (review_id) => {
 
 export const patchReviewVotes = (review_id, inc_votes) => {
   return gamesApi
-    .patch(`reviews/${review_id}`, { inc_votes })
+    .patch(`/reviews/${review_id}`, { inc_votes })
     .then(({ data: { updatedReview } }) => updatedReview.votes);
 };
 
 export const postComment = (review_id, username, body) => {
   return gamesApi
-    .post(`reviews/${review_id}/comments`, { username, body })
+    .post(`/reviews/${review_id}/comments`, { username, body })
     .then(({ status }) => status);
 };
 
