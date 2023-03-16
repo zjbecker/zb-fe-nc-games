@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { getUsers } from "./api";
 import { UserCard } from "./UserCard";
 import { LoadingAnimation } from "./LoadingAnimation";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const LoginView = () => {
   const { user } = useContext(UserContext);
   const [usersData, setUsersData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+  const { state } = useLocation();
 
   useEffect(() => {
     setIsLoading(true);
@@ -17,6 +20,14 @@ export const LoginView = () => {
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      if (state) {
+        navigate(state.prev);
+      }
+    }
+  });
 
   if (isLoading) return <LoadingAnimation />;
 

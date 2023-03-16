@@ -7,10 +7,6 @@ export const CommentForm = ({ setOptiComment, review_id }) => {
   const [newMessage, setNewMessage] = useState("");
   const [errMessage, setErrMessage] = useState("");
 
-  if (!user)
-    return (
-      <p>cannot write comment without logging in - update this with link</p>
-    );
   const username = user.username;
   const submitFormHandler = (e) => {
     e.preventDefault();
