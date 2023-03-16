@@ -179,3 +179,12 @@ h3 {
 .login-list-item {
   cursor: pointer;
 }
+
+.not-logged-in {
+  color: #bcbdba;
+  margin: 40px;
+}
+.not-logged-in a {
+  font-size: larger;
+  color: #eff0ec;
+}

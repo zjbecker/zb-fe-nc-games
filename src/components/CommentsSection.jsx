@@ -25,7 +25,7 @@ export const CommentsSection = () => {
   if (isLoading) return <LoadingAnimation />;
   if (!user) {
     return (
-      <section>
+      <section className="not-logged-in">
         <h3>{`There are ${commentsData.length} comments, please log in to view and add comments`}</h3>
         <NavLink to={"/login"} state={{ prev: location.pathname }}>
           Log In
