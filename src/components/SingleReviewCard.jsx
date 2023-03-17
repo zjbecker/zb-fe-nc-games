@@ -35,19 +35,23 @@ export const SingleReviewCard = ({
       <h2>{title}</h2>
       <h3>Designed by: {designer}</h3>
       <p>{review_body}</p>
-      <p>
+      <h4>
         Review by: {owner} Written on: {formattedDate}
-      </p>
+      </h4>
       <h4>Votes: {voteCount}</h4>
       <button className="like-button" onClick={likeButtonHandler}>
         {hasLiked ? (
-          <span role="img" aria-label="remove vote">
-            Remove Vote 👎
-          </span>
+          <label>
+            Remove Vote
+            <span class="material-symbols-outlined">sentiment_satisfied</span>
+          </label>
         ) : (
-          <span role="img" aria-label="add vote">
-            Add Vote 👍
-          </span>
+          <label>
+            Add Vote
+            <span class="material-symbols-outlined">
+              sentiment_dissatisfied
+            </span>
+          </label>
         )}
       </button>
       {errMessage ? <p>{errMessage}</p> : null}

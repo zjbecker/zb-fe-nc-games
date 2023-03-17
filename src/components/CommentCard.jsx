@@ -33,20 +33,22 @@ export const CommentCard = ({
 
   const deleteBtn = (
     <button
+      className="delete-btn"
       onClick={() => {
         deleteHandler(comment_id);
       }}
     >
-      <span role="img" aria-label="add vote">
-        remove ❌
-      </span>
+      Delete<span class="material-symbols-outlined">delete</span>
     </button>
   );
 
   const voteBtn = (
-    <span role="img" aria-label="add vote">
-      👍{votes}
-    </span>
+    <>
+      {votes}
+      <span class="material-symbols-outlined" aria-label="add vote">
+        thumb_up
+      </span>
+    </>
   );
 
   return (

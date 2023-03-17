@@ -8,7 +8,7 @@ export const Header = () => {
 
   return (
     <header>
-      <h1>GAMES</h1>
+      <h1>BORED REVIEW</h1>
       {user ? <h4>Logged in as: {user.name}</h4> : null}
       <Nav />
     </header>

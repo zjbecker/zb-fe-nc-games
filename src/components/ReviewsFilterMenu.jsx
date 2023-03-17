@@ -31,7 +31,7 @@ export const ReviewsFilterMenu = ({
   if (isLoading) return <p>loading...</p>;
 
   return (
-    <form>
+    <form className="filter-form">
       <label htmlFor="category-select">Category</label>
       <select
         id="category-select"
