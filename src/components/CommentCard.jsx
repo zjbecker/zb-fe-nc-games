@@ -17,13 +17,13 @@ export const CommentCard = ({
       .then(() => {
         setTimeout(() => {
           setAlertMessage("Message removed.");
-        }, 2000);
+        }, 700);
         setTimeout(() => {
           setCommentsData((curr) => {
             return curr.filter(({ comment_id }) => comment_id !== idToDelete);
           });
           setAlertMessage("");
-        }, 4000);
+        }, 2000);
       })
       .catch(() => {
         setAlertMessage("Something went wrong: comment has not been removed");
@@ -46,7 +46,7 @@ export const CommentCard = ({
     <>
       {votes}
       <span class="material-symbols-outlined" aria-label="add vote">
-        thumb_up
+        favorite
       </span>
     </>
   );

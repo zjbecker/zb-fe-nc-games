@@ -42,15 +42,12 @@ export const SingleReviewCard = ({
       <button className="like-button" onClick={likeButtonHandler}>
         {hasLiked ? (
           <label>
-            Remove Vote
-            <span class="material-symbols-outlined">sentiment_satisfied</span>
+            <span class="material-symbols-outlined">heart_minus</span> Remove
+            Vote
           </label>
         ) : (
           <label>
-            Add Vote
-            <span class="material-symbols-outlined">
-              sentiment_dissatisfied
-            </span>
+            <span class="material-symbols-outlined">favorite</span>Add Vote
           </label>
         )}
       </button>
