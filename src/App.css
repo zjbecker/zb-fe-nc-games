@@ -1,13 +1,19 @@
 body {
   background-color: #93a0ae;
   color: #eff0ec;
+  font-size: 16px;
 }
+input,
+select {
+  font-size: 100%;
+}
+
 .App {
   text-align: center;
 }
 h1 {
   font-family: "Nabla", cursive;
-  color: #020202;
+  color: gold;
   font-size: 2.4rem;
 }
 .reviews-list {
@@ -112,6 +118,10 @@ h1 {
 
 .comment-form {
   margin: 40px;
+}
+.comment-input {
+  width: 100%;
+  margin: 10px 0px;
 }
 .comment-list {
   display: flex;

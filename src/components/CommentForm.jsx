@@ -43,7 +43,7 @@ export const CommentForm = ({ review_id, setCommentsData }) => {
       <label htmlFor="comment-input">Comment: </label>
       <input
         type="text"
-        id="comment-input"
+        className="comment-input"
         value={newMessage}
         onChange={(e) => setNewMessage(e.target.value)}
       />
