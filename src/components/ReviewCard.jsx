@@ -10,8 +10,11 @@ export const ReviewCard = ({
   created_at,
   category,
 }) => {
-  const formattedDate = created_at.split("T")[0].split("-").reverse().join("-");
-
+  const formattedDate = new Date(created_at)
+    .toString()
+    .split(" ")
+    .slice(1, 4)
+    .join(" ");
   return (
     <li className="review-card">
       <Link to={`/reviews/${review_id}`} className="read-more">

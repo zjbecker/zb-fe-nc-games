@@ -76,8 +76,8 @@ export const ReviewsFilterMenu = ({
         value={orderQuery || "DESC"}
         onChange={(e) => setOrderQuery(e.target.value)}
       >
-        <option value="desc">DESC</option>
-        <option value="asc">ASC</option>
+        <option value="desc">Descending</option>
+        <option value="asc">Ascending</option>
       </select>
     </form>
   );

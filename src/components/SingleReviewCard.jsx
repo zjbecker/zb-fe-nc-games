@@ -16,7 +16,11 @@ export const SingleReviewCard = ({
   const [hasLiked, setHasLiked] = useState(false);
   const [errMessage, setErrMessage] = useState("");
 
-  const formattedDate = created_at.split("T")[0].split("-").reverse().join("-");
+  const formattedDate = new Date(created_at)
+    .toString()
+    .split(" ")
+    .slice(1, 4)
+    .join(" ");
 
   const likeButtonHandler = () => {
     const update = hasLiked ? -1 : +1;
@@ -42,12 +46,12 @@ export const SingleReviewCard = ({
       <button className="like-button" onClick={likeButtonHandler}>
         {hasLiked ? (
           <label>
-            <span class="material-symbols-outlined">heart_minus</span> Remove
-            Vote
+            <span className="material-symbols-outlined">heart_minus</span>{" "}
+            Remove Vote
           </label>
         ) : (
           <label>
-            <span class="material-symbols-outlined">favorite</span>Add Vote
+            <span className="material-symbols-outlined">favorite</span>Add Vote
           </label>
         )}
       </button>

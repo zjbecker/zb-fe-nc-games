@@ -38,14 +38,14 @@ export const CommentCard = ({
         deleteHandler(comment_id);
       }}
     >
-      Delete<span class="material-symbols-outlined">delete</span>
+      Delete<span className="material-symbols-outlined">delete</span>
     </button>
   );
 
   const voteBtn = (
     <>
       {votes}
-      <span class="material-symbols-outlined" aria-label="add vote">
+      <span className="material-symbols-outlined" aria-label="add vote">
         favorite
       </span>
     </>
